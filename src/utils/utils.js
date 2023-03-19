@@ -3,6 +3,10 @@ import { TRAFIKLAB_URL, TRAFIKLAB_KEY, LOCAL_STORAGE_KEY } from "../constants";
 
 export const url = `${TRAFIKLAB_URL}?key=${TRAFIKLAB_KEY}&DefaultTransportModeCode=BUS`;
 
+/**
+ * Check if the stored data is more than 30 days.
+ * @returns {boolean}
+ */
 export const isStale = () => {
   const saved = getLocalStorage();
   let stale = true;
@@ -16,22 +20,34 @@ export const isStale = () => {
   return stale;
 };
 
-export const needFetchTrafikLab = () => {
-  return getLocalStorage() === null;
-};
-
+/**
+ * Get JSON parsed localStorage value.
+ * @returns {number}
+ */
 export const getLocalStorage = () => {
   return JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
 };
 
+/**
+ * Set localStorage as the current time in milliseconds as the value.
+ */
 export const setLocalStorage = () => {
   localStorage.setItem(LOCAL_STORAGE_KEY, Date.now());
 };
 
+/**
+ * Remove key from the localStorage.
+ */
 export const removeLocalStorage = () => {
   localStorage.removeItem(LOCAL_STORAGE_KEY);
 };
 
+/**
+ * Get the sorted object of top 10 lines with most bus stops in each line.
+ * @param {Object[]} rawLines
+ * @param {Object[]} rawStops
+ * @returns {Object[]}
+ */
 export const getSortedData = (rawLines, rawStops) => {
   if (rawLines.length === 0 || rawStops.length === 0) return [];
 
