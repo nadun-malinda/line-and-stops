@@ -4,6 +4,8 @@
 
 - In the project directory, run `yarn` to install dependancies.
 
+- Create a `.env` file in the root and copy the content from `.env.example` file. Add your Trafiklab API token.
+
 - Then in an another terminal, in the project directory, run `node server.js` to start the server.
 
 - Then in an another terminal, in the project directory, run `yarn start` to start the react app.
