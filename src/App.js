@@ -34,6 +34,8 @@ const App = () => {
           setSorted(sortedTopLines);
           setLoading(false);
 
+          // Save sorted data to a JSON file.
+          // So we don't have to fetch data from the expensive trafiklab server with every page refresh.
           axios
             .post("/save", {
               data: sortedTopLines,
