@@ -10,4 +10,4 @@
 
 ## Important!
 
-Disable CORS in the browser when running this app localy since Trafiklab API from the localhost.
+Disable CORS in the browser when running this app localy since we are calling Trafiklab API from the localhost.
