@@ -33,6 +33,8 @@ export const removeLocalStorage = () => {
 };
 
 export const getSortedData = (rawLines, rawStops) => {
+  if (rawLines.length === 0 || rawStops.length === 0) return [];
+
   // group all stops by line number.
   const grouped = groupBy(rawLines, (item) => item.LineNumber);
 

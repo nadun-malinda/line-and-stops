@@ -50,6 +50,9 @@ const App = () => {
         });
     };
 
+    // If stored data is avalible and the data is not older than a month,
+    // get the data from the stored JSON file.
+    // Otherwise, fetch data from trafiklab API.
     if (isSaved && !isStale()) {
       axios
         .get("/sorted")
