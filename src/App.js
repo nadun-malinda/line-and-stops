@@ -54,9 +54,9 @@ const App = () => {
         .then((res) => {
           if (res?.data?.data) {
             setSorted(res?.data?.data);
-            removeLocalStorage();
           } else {
             setSorted([]);
+            removeLocalStorage();
           }
           setLoading(false);
         })
